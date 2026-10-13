@@ -1,10 +1,7 @@
 {
   "edition": "2026-10-11",
   "files": {
-    "IRIS_MANUSCRIPT_FINAL.pdf": "4ea1170754d09fabe4d8589d6423fb6cc3fed048fe6c56a4dd7decfe6377047b",
-    "README_FINAL.md": "5d666dac27e50683a3138ff819d5de2481778dde186359e852f770af1822f06d",
-    "appendices.tex": "7f819a6560fd19cd112559bb085b38bc654b6716fd41c928bc8702570882f2a2",
-    "assemble_final.py": "b64e7fc9c035d96580d6f15f16b84596cdbab61fbcead65258512d2567ac7ff1",
+    "README_FINAL.md": "58667f66222bcb08542a3e0d8151c308ab0e12ecdb9f59f6814537af3efd5f1a",
     "factory_map_audit.csv": "b28a476b70889ead687661a3332558c9c73706ec779dee36698502287b915739",
     "factory_map_audit.py": "b6e47d587c5667c90a86a1146cc0ad89ace2c4a6238d0ab37ef4fbe5660b015b",
     "figures/architecture_courier.pdf": "ea4f6a14e459e3f497b524c1e8f5f0ecb634b8ef8f7dc4f953cdcad07ff78a16",
@@ -36,14 +33,10 @@
     "figures/threshold_G3d.pdf": "e28ebb13a553261dc03a6e4659b8b3131a32edafd1eb247869651e45c5bb656e",
     "figures/two_block_scaling.pdf": "a8bd21dedaab28f5b422dc5023a940087053d4e3984dd420c5bd6c2eb48bbc1f",
     "figures/wb_bridge_dependency.pdf": "3da8295e81e523f00bd878f5035688e5bd945f7afb5104a4e765395348a9d22d",
-    "main_body.tex": "44650a430420b45f87d40ada8064f28213494ceaba29c5e4de698b3ac87cb293",
     "make_intuition_figure.py": "fb04a3f30ffe02477b9b567d57c6dc4572bce49dbed2089b576630c36ceac495",
     "make_publication_figures.py": "f0ead1d5d96306a0d91069fa144cbd3b7d45ab318cfe34dce9efd846e35e8544",
-    "manuscript.tex": "b432bb13029add6b9d7b5903e98c5e9a4467cc5565e315a0e2af923066bda49d",
-    "references_db.tex": "f4ceeb6d92a76353ecab7600a913ec627161e6d8bd8cb05de64b1121a90f0de2",
-    "references_main.tex": "377c98293b44abc0e9f97473255078d4cec474c937827df18ec7e3997f9253bd",
     "research_records/ABSTRACT_EDIT_RECORD.md": "30ad672211552ce78191ca7e955e3d5327b6ca258f9bf671bb88a73f96804204",
-    "research_records/AI_ACKNOWLEDGEMENT.txt": "3b0d39a1638f636d7ebe4ff4f3b24ca2cfb0aacdec63a6d69d8da98e37242aae",
+    "research_records/AI_ACKNOWLEDGEMENT.txt": "715fd0265306e8187d41829554bf6a57e7b7dd262d49e448e6e82260578231d3",
     "research_records/AI_ASSISTANCE_RECORD.md": "557362df18833d9c8be2273a58e4d2f09b775eee11c7074117afd1aee062354d",
     "research_records/ARCHIVE_README_2026-10-09.md": "59dc25fdb728c856d6e529ee77d1ecc2d1890e7109e0272dc4cb041f4e019a96",
     "research_records/IRIS_README.md": "228b95030cec5c9076df3926368c07952fa58b533267b6d2cb69d157600ef6a9",
@@ -424,7 +417,6 @@
     "research_records/wb_microscopic_bridge_audit.py": "899c9e21078cfcc99ad4e6e4b61475b3e22b4b713442e3876bc33286dbb84821",
     "revision_checks/IRIS_independent_checks.json": "3e200b0880b651830203d3f6a2a0e376c090cacc15962af7cfc6631551cb013d",
     "revision_checks/IRIS_independent_checks.py": "d9b5a7ffed23553d854e551ff8a97e0e19981601c5fa17f9dc49e7bdc62bb871",
-    "revision_checks/pdf_validation.json": "0b6134b8794479f38842f301f0f45f47f4069b2a51a6a50867f173d545b5ce5c",
-    "scaling_fit_counts.tex": "38277ef3ccdfddf57f9303f012613f6d380f3c0807ada869c5a657abd74b9226"
+    "revision_checks/pdf_validation.json": "0b6134b8794479f38842f301f0f45f47f4069b2a51a6a50867f173d545b5ce5c"
   }
 }

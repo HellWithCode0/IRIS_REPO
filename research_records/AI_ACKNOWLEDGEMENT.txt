@@ -1,0 +1,5 @@
+Acknowledgment of AI assistance
+
+The manuscript was written by the author. Claude Code assisted with editing
+and figure scripts. Figures were rendered from the author's data with
+Matplotlib, without image-generation models.
