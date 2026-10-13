@@ -1,9 +1,3 @@
-# IRIS manuscript revision - 11 October 2026
-
-The final manuscript is IRIS_MANUSCRIPT_FINAL.pdf. The original supplied PDF
-has not been overwritten. This package supplies editable LaTeX, figures,
-the available author research records, and finite revision checks.
-
 ## Mathematical scope
 
 The revised title is "Logical Slab Access and Local Processing with
