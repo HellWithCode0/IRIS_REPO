@@ -1,0 +1,581 @@
+\appendix
+\section{Logical-space and distance proofs}
+\label{app:slab-proof}
+
+All vector spaces in these proofs are over $\mathbb F_2$. Logical Pauli
+classes are taken modulo stabilizers and irrelevant phases. Let $g_X,g_Z$
+denote the numbers of listed lattice stars and faces, and $r_X^{\rm rel}$,
+$r_Z^{\rm rel}$ the dimensions of their relation spaces. These relation
+dimensions are distinct from the numbers of disjoint ports in the main text.
+
+\subsection{Commutation and relation maps}
+The junction rules in Sec.~\ref{sec:construction-details} preserve
+commutation except at a crossing of an $A_i$ sheet and a $C_j$ sheet.
+For example, a data star and an adjacent $C$ face share both the data
+$z$-edge and the added $c_y$ edge. An $A$ star and an adjacent data face
+share both the added $d_z$ and an $a_x$ edge. At an $A_i$--$C_j$ crossing,
+each common input qubit contributes one unmatched overlap. The wall
+equations add $\sigma_{y'}+\tau_y$ to the overlap of the star at $y'$ and
+the face on $[y,y+1]$, for $y'=y,y+1$. Successive equations determine
+the variables along a path, with the endpoint equations specified in
+Sec.~\ref{sec:construction-details}. Their sum is the parity of
+$\operatorname{supp}X_i\cap\operatorname{supp}Z_j$. This is zero by
+$H_XH_Z^T=0$, so the endpoint conditions agree and the solution is unique.
+An empty overlap has no variables; for a one-vertex overlap only the two
+endpoint conditions on the same variable remain. Thus all checks commute.
+
+The sheet counts, assigning shared boundary columns to data sheets, are
+\begin{align}
+ n_D&=L_x(L_z-1)+(L_x+1)L_z,\nonumber\\
+ g_{X,D}&=(L_x+1)(L_z-1),\quad g_{Z,D}=L_xL_z,\nonumber\\
+ n_C&=w(L_z-1)+(w-1)L_z,\nonumber\\
+ g_{X,C}&=(w-1)(L_z-1),\quad g_{Z,C}=wL_z,\nonumber\\
+ n_A&=L_x(w+1)+(L_x+1)w,\nonumber\\
+ g_{X,A}&=(L_x+1)(w+1),\quad g_{Z,A}=L_xw.
+\end{align}
+Here $w$ is the sheet's width in lattice edges. Data sheets contribute
+$+1$ and either check sheet contributes $-1$ to the Euler count, so
+\begin{equation}
+ n-g_X-g_Z=n_{\rm in}-m_X-m_Z.
+ \label{eq:rank-euler}
+\end{equation}
+The junction and wall additions change supports without adding generators
+or qubits. Redundant input rows cannot be discarded in this count.
+
+For an $X$ relation, assign a binary selection coefficient to every star.
+Each edge owned by $A_i$ belongs to its two endpoint $A_i$ stars and no
+other star, so the selection is constant, say $\alpha_i$, on that sheet.
+On the data column $x=0$, a data $z$-edge belongs to the data stars at its
+endpoints when present, and to an $A_i$ star at a corresponding incidence.
+Summing the vanishing edge coefficients along the column, where there are
+no stars at $z=0,L_z$, gives
+\begin{equation}
+ \sum_{i:q\in X_i}\alpha_i=0\quad\text{for every }q,
+ \qquad \alpha^TH_X=0.
+\end{equation}
+The coefficients on the data stars are determined from the bottom
+boundary; data $x$-edges make them constant along each row. Coefficients
+on the remaining $C$ stars are then determined from their bottom
+boundary, since $c_z(y,0)$ meets just one such star. Thus the map from a
+lattice $X$ relation to $\alpha$ is injective.
+
+For a $Z$ relation, the edges owned by $C_j$ imply a constant face
+coefficient $\gamma_j$ on that sheet. Data $x$-edges imply that the data
+face coefficient is independent of $z$; write it as $b_q(x)$.
+The data $z$-edges give
+\begin{align}
+ b_q(0)&=b_q(L_x-1)=0,\nonumber\\
+ b_q(x-1)+b_q(x)&=\sum_{j:X_j=x,\ q\in Z_j}\gamma_j.
+\end{align}
+Summing yields $\gamma^TH_Z=0$. The data coefficients are determined by
+$\gamma$, and the $A$-face coefficients are determined from $x=0$, where
+each $a_y$ edge meets one face. Hence this relation map is also injective.
+Consequently,
+\begin{align}
+ k&=n-g_X-g_Z+r_X^{\rm rel}+r_Z^{\rm rel}\nonumber\\
+ &\le n_{\rm in}-m_X-m_Z+(m_X-\rank H_X)\nonumber\\
+ &\quad +(m_Z-\rank H_Z)\nonumber\\
+ &=K.
+ \label{eq:rank-upper}
+\end{align}
+
+\subsection{Slab pairing, stabilizers, and translation}
+The $X$ slab for $x\in\ker H_Z$ contains all data $z$-edges at height
+$z_0$ on selected data sheets. On $C_j$, the segment after incidence $t$
+has coefficient $p_t=\sum_{h\le t}x_{q_h}$. More precisely it contains
+the $C_j$-owned $z$-edges with $Y_{q_t}<y\le Y_{q_{t+1}}$, excluding
+the shared last column. Local overlaps with faces are the endpoint and
+middle relations of Eqs.~\eqref{eq:boundary} and~\eqref{eq:prefix}.
+They all vanish. Walls add only $a_y$ edges to these faces and hence
+do not change this calculation.
+
+For $z\in\ker H_X$, the dual slab at $x_0$ contains every data $z$-edge
+at that $x$ coordinate on selected data sheets and the $A_i$-owned
+$y$-edges with $Y_{q_t}\le y<Y_{q_{t+1}}$, weighted by the analogous
+prefix parity. It commutes with every star. Opposite slabs intersect on
+exactly one data edge for each input coordinate selected by both; their
+other supports are sheet owned and disjoint. Their pairing is therefore
+\begin{equation}
+ \langle\widetilde X(x;z_0),\widetilde Z(z;x_0)\rangle=x\cdot z.
+ \label{eq:slab-pair-proof}
+\end{equation}
+Choose input logical bases with pairing the identity. Their lifts give
+$K$ independent logical pairs and thus $k\ge K$. Together with
+Eq.~\eqref{eq:rank-upper}, this proves $k=K$.
+
+This also closes the two identifications needed in the main text without
+assuming them in the rank argument. If $x$ is an input $X$ stabilizer,
+its lift pairs trivially with every lifted $Z$ logical. Those lifted
+logicals span the full opposite logical space because $k=K$, so the lift
+is a lattice stabilizer. The dual statement follows identically.
+The difference of two heights of an $X$ lift has zero pairing with every
+$Z$ lift by Eq.~\eqref{eq:slab-pair-proof}, so it too is a stabilizer.
+The same holds for translating $Z$ planes. Hence the lifts induce an
+isomorphism of input and lattice logical spaces at every allowed position.
+
+\subsection{The per-plane projection}
+Fix a nontrivial lattice $X$ logical $O$ and a plane $x=x_0$. Decompose
+the dual slab into disjoint pieces: one vertical data column per input
+qubit and one $A_i$ backbone segment per interval between successive
+incidences. Let $a_q$ and $b_{i,t}$ be the parities of the intersection of
+$O$ with these pieces. Define the input vector
+\begin{equation}
+ \pi_{x_0}(O)=\sum_q a_q e_q+
+       \sum_{i,t}b_{i,t}\sum_{h\le t}e_{q_h^{(X_i)}}.
+ \label{eq:plane-projection}
+\end{equation}
+For every $z\in\ker H_X$, its dot product with $z$ is the commutator
+of $O$ with the $Z$ lift of $z$ in this plane. Taking $z$ to be an input
+$Z$ stabilizer proves $\pi_{x_0}(O)\in\ker H_Z$. Taking a logical $z$
+conjugate to $O$ proves that the projected class is nontrivial. This
+argument holds in every plane because the lifts represent the same class.
+
+Replacing a prefix by its complementary suffix adds the input $X_i$
+stabilizer. Choose the shorter representative of each prefix; it has
+weight at most $\lfloor w_X/2\rfloor$. Each parity-one piece contains
+at least one occupied qubit of $O$, and distinct pieces in a plane do
+not share qubits. Thus a representative of $\pi_{x_0}(O)$ has weight at
+most $\eta_X$ times the number of occupied qubits of $O$ in the plane.
+Its weight is at least $d_X^{\rm in}$. Summing over the $L_x+1$ disjoint
+planes proves Eq.~\eqref{eq:distance}. Exchanging the two constructions
+and summing over the $L_z$ disjoint layers proves
+Eq.~\eqref{eq:distance-dual}. Complete slabs have $O(N^2)$ qubits for
+balanced bounded-degree inputs: there are $O(N)$ data pieces of length
+$O(N)$ and $O(N)$ bounded-weight checks with total backbone length
+$O(N^2)$. This supplies the matching upper bound for every pure logical
+class and, by taking a product of two slabs, for every mixed Pauli class.
+
+\section{Grid expansion and unequal-distance protection}
+\label{app:expansion}
+
+\subsection{A discrete relative-expansion bound}
+Let $P_a$ be the path with $a$ vertices. Side lengths in this appendix
+count vertices, not edges. Let $G_0=P_a\square P_b$ with $2\le a\le b$,
+and let $h(G_0)$ be its edge Cheeger constant. We first prove
+\begin{equation}
+ h(G_0)\ge 1/b.
+\end{equation}
+For $|S|\le ab/2$, regard the $a$ rows as having length $b$. If there is
+both a full and an empty row, every column has a vertical boundary edge,
+so $|\delta S|\ge b\ge |S|/b$. If no row is full, every nonempty row
+has a horizontal boundary edge, giving $|\delta S|\ge |S|/b$.
+If a full row exists but no row is empty, all columns meet $S$ and at
+most $|S|/a\le b/2$ columns are full. At least $b/2$ columns therefore
+have a vertical boundary edge, again giving $|\delta S|\ge |S|/b$.
+Complementation handles larger sets.
+
+Now take $G=G_0\square P_\ell$ and let $U$ occupy at most $t$ of its
+parallel $G_0$ layers, with $|U|\ge2$. For any cut set $S$, denote its
+layer slices by $S_j$. Fix one layer $j_0$, and put
+\begin{equation}
+ \mu=\min\{|S_{j_0}|,|V(G_0)\setminus S_{j_0}|\},\qquad
+ m=\max_j|S_j\mathbin\triangle S_{j_0}|.
+\end{equation}
+The vertical boundary has at least $m$ edges: along a path of layers
+to a maximizing slice, every changed vertex crosses a boundary.
+Each horizontal slice has minority size at least $\max\{0,\mu-m\}$.
+Writing $c=\min\{1,\ell h(G_0)\}$, the total boundary obeys
+\begin{equation}
+ |\delta S|\ge m+c\max\{0,\mu-m\}\ge c\max\{\mu,m\}.
+\end{equation}
+Choose the minority side of the reference slice; in each port layer it
+contains at most $\mu+m$ vertices. Hence
+\begin{equation}
+ \min\{|S\cap U|,|U\setminus S|\}
+       \le t(\mu+m)\le2t\max\{\mu,m\}.
+\end{equation}
+If $\max(a,b,\ell)/\min(a,b,\ell)\le A$, then
+$c\ge1/A$ and $\beta(G,U)\ge1/(2At)$, proving
+Eq.~\eqref{eq:grid-bound}. Any coordinate orientation can be used.
+Ports need not fill their layers. Constant lattice refinement separates
+the finitely many local port labels and changes $A,t$ only by constants.
+Cases with fewer than two ports are excluded from this relative-expansion
+definition and treated directly.
+
+\subsection{Parallel edges and the cycle space}
+Replace every edge $e$ by $m_0$ parallel copies and attach all copies to
+the same vertex stars. Use one designated copy for each original pairing
+path and each elementary square cycle. In addition, measure
+$Z_{e,1}Z_{e,r}$ for $2\le r\le m_0$. These checks span the entire
+cycle space of the multigraph: a cycle can first be moved to designated
+copies using the two-edge cycles and then reduced using the rectangular
+grid's square cycles. Thus no additional cycle logicals are introduced.
+Every cut contains all $m_0$ copies of each original cut edge, so
+\begin{equation}
+ \beta(G^{(m_0)},U)=m_0\beta(G,U).
+\end{equation}
+Taking $m_0=\lceil2At\rceil$ makes this at least one. At fixed $m_0$,
+star weights, cycle weights, and check incidences remain bounded. The
+copies can be placed in a fixed refinement cell near the original edge;
+bounded congestion then permits a constant-depth local extraction schedule
+for each static check catalog. Uniform properties across an entire adaptive
+history still require Assumption~\ref{ass:uniform}.
+
+\subsection{The protected quotient for unequal blocks}
+Here use the dual convention and gauge
+$M=\overline Z_1\overline Z_2=Z(D_1)Z(D_2)$ on $C_1\otimes C_2$.
+Let $C_2$ have distance at least $d_2$. Include all graph cycle checks.
+Let $\mathcal Q_1$ be generated by deformed images of the logical
+operators on $C_1$ that commute with $\overline Z_1$. An $X$ image is
+completed by edges with boundary equal to its port incidence; a $Z$
+image needs no completion. Different completions differ by a cycle
+stabilizer. Because $M$ is measured, $\overline Z_2$ and
+$\overline Z_1$ represent the same class in $\mathcal Q_1$.
+
+\begin{lemma}[Static protected quotient]
+The minimum weight of a deformed logical class outside $\mathcal Q_1$
+is at least $\min\{1,\beta(G,U)\}d_2$.
+\end{lemma}
+\begin{proof}
+For an $X$ normalizer, restriction to the original blocks is in their
+original $X$ normalizers; the edge boundary equation also requires
+commutation with $M$. If its $C_2$ restriction is a stabilizer, remove
+its deformed lift. The remaining $C_1$ logical commutes with
+$\overline Z_1$, and differences of edge completions are cycles, so
+the class lies in $\mathcal Q_1$. Otherwise its $C_2$ data restriction
+already has weight at least $d_2$.
+
+For a $Z$ normalizer, the ancilla support is a cut $\delta S$, since
+it is orthogonal to every cycle. Multiplying by vertex stars on either
+side removes the cut and gives two original logicals differing by $M$.
+If the $C_2$ part of either belongs to
+$\langle S_Z(C_2),\overline Z_2\rangle$, the class is in
+$\mathcal Q_1$. Outside this subgroup both reductions have nontrivial
+$C_2$ parts, each of weight at least $d_2$. Put $a$ equal to the
+original data weight, $m=\min\{|S\cap U|,|U\setminus S|\}$, and
+$b_0=\min\{1,\beta\}$. The smaller-side reduction has weight at
+most $a+m$ and at least $d_2$, whereas
+\begin{equation}
+ a+|\delta S|\ge a+b_0m\ge b_0(a+m)\ge b_0d_2.
+\end{equation}
+Finally, $\mathcal Q_1$ is generated by pure-type classes in this CSS
+setting. A mixed class outside it has a pure component outside it, of
+weight no larger than the mixed operator, giving the same bound.
+\end{proof}
+
+The lemma also permits $C_1$ to be a bare qubit, when its commuting
+logical subgroup is generated by $Z_1$. During teleportation the parity
+and final $X_1$ outcomes update only the traveling slot. This algebraic
+statement explains the exceptional resource degree of freedom. It does
+not by itself prove that every inherited syndrome at a noisy open
+boundary is harmless to spectators; that requirement is stated separately
+in Assumption~\ref{ass:uniform}.
+
+\section{A relative phenomenological slice bound}
+\label{app:slice}
+
+Consider a rectangle with at least one undeformed entry and exit round
+and $R$ deformed rounds gauging $P=X(D)$. A fault is a single-qubit
+Pauli in a gap before a round or a flip of one check record. Edge
+preparation and readout flips are represented at their first and last
+gaps. Subtract the fault-free propagation of the same incoming
+$(s,\lambda,\rho)$ and fix the same ideal random gauge outcomes.
+The relative input is zero; require zero relative syndrome and records
+at the right cut. The first and last cut records are included as
+boundary data, not silently replaced by perfect physical measurements.
+
+Write $E_t$ for the accumulated data-and-edge Pauli by round $t$.
+For a check $c$, with commutator $\sigma_c(E_t)$ and record fault
+$m_{c,t}$, its relative record is
+\begin{equation}
+ \Delta r_{c,t}=\sigma_c(E_t)+m_{c,t}.
+\end{equation}
+Use consecutive-round detectors, preparation and readout relations, and
+the local entry/exit relations between a $Z$ check $s$ and its lift
+$\widetilde s=sZ(\mu_s)$. The measured cycles generate the full cycle
+space. We prove Eq.~\eqref{eq:rect-distance} for a detector-silent pattern.
+
+The CSS sectors can be treated separately; a $Y$ mechanism contributes
+to both sectors but its count is not doubled when bounding either part.
+For the $X$ sector, consecutive and entry/exit equations propagate zero
+relative $Z$-check records from the cuts through the rectangle. Let $z_e$
+be the parity of $X$ faults on edge $e$, which is its relative final
+$Z$ readout. Exit equations give
+\begin{equation}
+ \sum_{e\in\mu_s}z_e=0,\qquad
+ \sum_{e\in c}z_e=0\quad\text{for every cycle }c.
+\end{equation}
+Thus $z=\delta S$. The final data error $E_{\rm d}$ commutes with the
+original $Z$ checks by the output-syndrome condition. The single-slice
+operator $O=E_{\rm d}X(\delta S)$ commutes with the deformed checks.
+Multiplying its vertex stars over $S$ leaves
+$L=E_{\rm d}X(f^{-1}(S\cap U))$, exactly the relative data frame
+after edge-readout correction. Complementing $S$ changes $L$ by $P$,
+which is trivial after the measurement. A nonzero surviving effect means
+that $O$ is a nontrivial deformed logical, so $|O|\ge\widetilde d_X$.
+Every occupied data or edge timeline in $O$ contains at least one original
+$X$-sector fault. Therefore this sector needs at least
+$\widetilde d_X$ faults for a nontrivial effect.
+
+For the $Z$ sector, original $X$-check records are chained from the zero
+input, and each vertex-star relative record is a constant $b_u$ across
+the deformed rounds. The reported parity flip is $o=\sum_u b_u$.
+The output data error $E_{\rm d}$ is an original $Z$ normalizer. If its
+class is nontrivial, its data support already costs at least $d_Z$
+faults. Otherwise a nonzero effect requires $o=1$. If every deformed
+round contains an $X$-check record fault, there are at least $R$ faults.
+If some round $t^*$ has none, the data part $Z(B)$ of $E_{t^*}$ commutes
+with every original $X$ check. Each edge occurs in two vertex stars,
+whereas each port occurs in one, so
+\begin{equation}
+ |B\cap D|=\sum_u\sigma_{A_u}(E_{t^*})=\sum_u b_u=1.
+\end{equation}
+Hence $Z(B)$ anticommutes with $P$ and is a nontrivial original logical
+of weight at least $d_Z$. Its occupied data timelines cost at least that
+many faults. This sector therefore needs $\min\{d_Z,R\}$ faults.
+At least one sector has a nonzero effect, proving the claimed minimum.
+With no deformation, the same output argument gives the idle-memory
+distance $\min\{d_X,d_Z\}$. The $X/Z$-exchanged version applies to
+$Z$ gauging. This is a lower bound for the stated rectangle and boundary
+conditions; exact attainment in each particular circuit requires its own
+witness or distance calculation.
+
+\section{Deterministic resource factories}
+\label{app:factories}
+
+\subsection{Codes, orientations, and recovery}
+For $r=3$ or $4$, let $n_r=2^r-1$ and label coordinates by the distinct
+nonzero vectors $v_i\in\mathbb F_2^r$ in binary order. Let $L_r$ be the
+row span of the $r\times n_r$ matrix with columns $v_i$, and define a
+CSS code with
+\begin{equation}
+ S_X=L_r,\qquad S_Z=\langle L_r,\mathbf1\rangle^\perp.
+\end{equation}
+Here $S_X,S_Z$ specify binary supports of stabilizer generators. The
+code encodes one qubit, with the fixed computational-basis convention
+\begin{equation}
+ |b_L\rangle=2^{-r/2}\sum_{x\in L_r}|x+b\mathbf1\rangle,
+ \qquad b\in\{0,1\}.
+ \label{eq:resource-codewords}
+\end{equation}
+For $r=3$ this is the Steane code; for $r=4$ it is the punctured
+Reed--Muller code. All nonzero words of $L_r$ have weight $2^{r-1}$.
+Consequently $(S^\dagger)^{\otimes7}$ has phase one on $|0_L\rangle$
+and phase $i$ on $|1_L\rangle$, while
+$(T^\dagger)^{\otimes15}$ has phase one and $e^{i\pi/4}$ respectively.
+They implement logical $S$ and $T$ in this convention.
+
+Prepare $|+_L\rangle$, apply the indicated transversal rotations by
+coordinatewise resource teleportation, measure the $X$-check syndrome,
+recover, and decode the logical output. The CSS encoder and decoder are
+fixed by Eq.~\eqref{eq:resource-codewords}; Gaussian elimination realizes
+them with CNOTs, $X/Z$ preparations, and $X/Z$ measurements. They require
+no extra non-Clifford candidate slots. For the negative-angle rotations
+one may use $X|Y\rangle$ or $X|A\rangle$, equal up to phase to the
+corresponding conjugate resource. Each conditional $S^\dagger$ correction
+after a $T^\dagger$ injection is assigned one additional $Y$ slot on
+the same coordinate.
+
+The recovery table is completely specified by
+\begin{equation}
+ R(0)=I,\qquad R(v_i)=Z_i.
+ \label{eq:factory-recovery}
+\end{equation}
+The columns $v_i$ enumerate every nonzero syndrome once. Thus recovery
+is defined on every outcome and the factory always returns one output.
+In ideal operation all $Z$-check syndromes are zero; measuring them can
+also be included without changing this phase-error recovery rule.
+
+\subsection{Arbitrary defective candidates}
+Purify a candidate as $|0\rangle|\phi_0\rangle+
+|1\rangle|\phi_1\rangle$. In any fixed phase-teleportation branch, after
+the prescribed Pauli correction, the data-to-output map is diagonal in
+the computational basis. Relative to the ideal diagonal rotation it is
+therefore $I\otimes E_0+Z\otimes E_1$. Tracing out the environment gives
+conditional Kraus operators in $\operatorname{span}\{I,Z\}$. This proof
+also covers mixed and correlated candidates by purification. A defective
+correction candidate remains diagonal on the same coordinate.
+
+If at most one coordinate $i$ is defective, the encoded block before
+recovery has error space
+$I\otimes E_0+Z_i\otimes E_1$. The two syndrome outcomes are $0$ and
+$v_i$; Eq.~\eqref{eq:factory-recovery} corrects both. After correction
+the retained logical state is ideal and factors from the environment.
+This is a statement about correction of an error space, not about a
+particular stochastic mixture of $I$ and $Z$.
+
+For a resource family with defect-set decomposition
+\begin{equation}
+ \rho=\sum_B\pi(B)
+   \left(\bigotimes_{i\notin B}|R_i\rangle\langle R_i|\right)
+   \otimes\sigma_{B,E},\quad
+ \sum_{B\supseteq J}\pi(B)\le q^{|J|},
+\end{equation}
+a bad output requires at least two defective slots, in fact at distinct
+coordinates. For any $u$ disjoint output runs, choose a pair in each;
+their $2u$ slots are distinct. The joint defect bound and union bound give
+\begin{equation}
+ \Pr(\text{all }u\text{ outputs bad})
+ \le \binom{30}{2}^{u}q^{2u}.
+\end{equation}
+This proves Eq.~\eqref{eq:distill} for the entire output family. The
+constant 435 is a conservative slot-pair count. It is consistent with
+the 21 and 105 distinct-coordinate pairs for the two codes and does not
+claim the cubic error suppression of postselected distillation.
+
+Let $y_\ell,a_\ell$ count raw candidates needed for one $Y$ or $A$
+output at level $\ell$. With preassigned correction slots,
+\begin{equation}
+ y_\ell=7y_{\ell-1},\qquad
+ a_\ell=15a_{\ell-1}+15y_{\ell-1},\qquad y_0=a_0=1.
+\end{equation}
+Since $7/15<1$, both are $O(15^\ell)$. The number 30 in the error
+bound therefore does not change the production exponent to
+$\log_2 30$. These recurrences count ideal logical factory operations
+up to a fixed factor; physical faults in those operations are addressed
+by the scheduled-circuit hypothesis.
+
+\section{Conditional threshold and resource accounting}
+\label{app:conditional}
+
+This appendix proves the architecture implication under
+Assumption~\ref{ass:uniform}. It does not use finite certificates as
+proofs of that assumption. Let $z$ bound the degree of the fixed union
+fault graph. The number of connected sets of $m$ vertices containing a
+specified anchor is at most $C_z^m$ for a size-independent constant
+$C_z$. One can see this by encoding a rooted spanning tree and its
+bounded-degree neighbor choices; overcounting suffices.
+
+If at least a fraction $\theta$ of the vertices in such a set are actual
+faults, the local-stochastic condition and a union bound over their
+subsets give probability at most $2^m p^{\theta m}$. Subsets with
+incompatible labels at one location have probability zero, so they do
+not weaken the bound. Hence a large-cluster event over $V$ possible
+anchors is bounded by a geometric sum of
+$V(2C_zp^\theta)^m$. Choosing a fixed threshold makes this sum
+exponentially small in its minimum size. Item 4 of the assumption
+supplies the required size and density properties for committed decoding;
+they are not consequences of bounded graph degree alone.
+
+For clarity, the half-density statement in a fixed nonadaptive linear
+problem follows from minimum cardinality. If $e$ is the actual error and
+$\widehat e$ a minimum solution with the same syndrome, then
+$e+\widehat e$ is detector silent. Each of its connected components is
+silent. Replacing the decoder's part on one component by the actual part
+remains a valid solution, so the actual part is at least as large as the
+decoder part there. At least half the residual component is therefore
+actual. Open commitment boundaries, mutually exclusive location labels,
+and changes of adaptive branch require the corresponding uniform witness
+statement rather than an unqualified extension of this argument.
+
+\subsection{Joint courier error estimate}
+Take a fixed-factor sequence
+$\lambda_-d_j\le d_{j+1}\le\lambda_+d_j$ with $1<\lambda_-\le\lambda_+$,
+and $R_j=\Theta(d_j)$. Set $u=C\sqrt p<1$. The anchor and half-density
+bounds imply a one-resource charging estimate
+\begin{equation}
+ q_{\rm inj}\le C_0u+
+ C_1\sum_{j=0}^{J}d_j^{5/2}u^{\gamma d_j}
+ +C_1f^{5/2}u^{\gamma d_J}.
+ \label{eq:courier-sum-final}
+\end{equation}
+The first term is the raw stage. Choose the constant starting distance
+with $\gamma d_0\ge1$. For $u$ below a fixed constant, the geometric
+growth of $d_j$ makes the sum $O(u)$ uniformly in $J$. Choose
+\begin{equation}
+ d_J\ge d_{\rm base}
+      +C_{\rm chain}\frac{\log f}{\log(1/p)}
+\end{equation}
+with a sufficiently large fixed coefficient. Since
+$\log(1/u)/\log(1/p)$ is bounded below for sufficiently small $p$,
+the last term is also $O(\sqrt p)$. The terminal block can remain below
+the full distance $\Theta(f)$, after adjusting constants and the minimum
+size, because $\log f=O(f)$.
+
+For a specified set of distinct bad resources, item 4 supplies disjoint
+witnesses outside the large-cluster event. Choosing one witness and an
+actual-fault subset for each resource gives disjoint specified sets of
+actual locations. The same local-stochastic bound now applies to their
+union, and the witness-counting sums factor as upper bounds even though
+the noise is correlated. Thus the joint probability is bounded by
+$q_{\rm inj}^{|J|}$. If the complement of the large-cluster event has
+probability at least $1/2$, conditioning costs at most a factor two,
+which is bounded by $2^{|J|}$ for nonempty $J$. Hence the conditional
+resource family has $q_0\le2q_{\rm inj}=O(\sqrt p)$. A marginal
+bound alone would not justify this conclusion.
+
+\subsection{Distillation levels and total failure}
+Writing $C_D=435$, the ideal recursion gives
+\begin{equation}
+ q_\ell\le C_D^{-1}(C_Dq_0)^{2^\ell}.
+\end{equation}
+Choose a fixed $p_{\rm th}$ small enough that $C_Dq_0<1$ uniformly
+below threshold. Taking $2^\ell=\Theta(f)$ makes the resource error
+exponentially small on the same scale as the protected-cluster error,
+and $15^\ell=O(f^{\log_2 15})$. The number of locations and consumed
+resources is at most $WT$ times a fixed polynomial in $f$ and
+$15^\ell$. Its polynomial factors can be absorbed by increasing the
+constant $c$ and minimum value $f_{\min}$ in Eq.~\eqref{eq:f}. A union
+bound allocates at most $\varepsilon/2$ to large clusters and at most
+$\varepsilon/2$ to final defective resources. This establishes the
+claimed implementation-failure bound under the uniform hypotheses.
+
+Code parameters give $K=\Theta(\sqrt f)$ and $n=\Theta(f^{3/2})$.
+A coarse logical box of side $\Theta(f^{1/6})$ fits into one block with
+fixed capacity reserved for live factory work. The number of blocks is
+$O(W/K+B_f(A)+1)$, proving Eq.~\eqref{eq:space}. Depth-first evaluation
+of a fixed-branching factory tree stores $O(\ell)$ candidates at once;
+$\ell=O(\log f)$ fits within the reserved $\Theta(\sqrt f)$ capacity.
+The geometrically increasing courier sizes have bounded total volume
+relative to the largest one. Serial resource production then costs
+$O(Kf15^\ell)$ per logical layer, proving Eq.~\eqref{eq:depth}.
+
+For a bounded-aspect logical box, with $x=W/\sqrt f$,
+$B_f(A)=O(x^{2/3}+1)$. Since $x^{2/3}\le x+1$, multiplication by
+$f^{3/2}$ gives $O(Wf+f^{3/2})$. Connectedness alone is insufficient
+for this bound: thin or fragmented regions can have many partially
+occupied coarse boxes. The space and time conclusions use a serial
+nearest-neighbor schedule with the specified hypotheses; they are not
+an unconditional threshold proof for every code deformation sharing the
+same static geometry.
+
+\section{Numerical records and reproducibility}
+\label{app:numerical}
+
+The accompanying archive contains the revised \nolinkurl{manuscript.tex},
+\nolinkurl{main_body.tex}, and \nolinkurl{appendices.tex}, plus a
+\nolinkurl{research_records} directory copied from the supplied author
+package. Paths in this appendix are relative to that directory.
+The main numerical sources are as follows.
+\begingroup\raggedright
+\begin{itemize}
+\item \nolinkurl{two_block_distance.csv} and
+\nolinkurl{two_block_mc.csv}: initial interface distances, solver statuses,
+and simulation counts. The implemented circuits and solver are in
+\nolinkurl{two_block_measurement.py}.
+\item \nolinkurl{numerical/scaling_campaign/mc_batches.csv}: unique
+task/batch records, seeds, shot counts, any-observable failures, and
+per-observable failures. The scheduler and profile are
+\nolinkurl{scaling_campaign/campaign/run_mc.py} and
+\nolinkurl{scaling_campaign/campaign/profiles.py}.
+\item \nolinkurl{scaling_campaign/campaign/analyze.py} and
+\nolinkurl{make_scaling_figure.py}: aggregation and suppression fits;
+\nolinkurl{numerical/scaling_campaign/decoder_check.csv}: paired decoder
+comparison; the same numerical directory contains code and fault-distance
+results and the reported-bit witness checks.
+\item \nolinkurl{numerical/continuous_transition/}: surface-code
+transition campaign, circuit generator, counts, and posterior crossing
+analysis. Headline runs use
+\nolinkurl{final_transition_heavy.py}; posterior analysis is in
+\nolinkurl{threshold_estimate/fit_threshold_estimate.py}.
+\item \nolinkurl{growing_family/} and
+\nolinkurl{routed_campaign_check.py}: routed-input campaign and its audit.
+\item \nolinkurl{layer_code_explicit.py},
+\nolinkurl{slab_gluing_certificate.py},
+\nolinkurl{factory_map_audit.py}, and
+\nolinkurl{boundary_composition_check.py}: finite construction, resource,
+and boundary-map checks. \nolinkurl{schedule_verifier.py} checks a finite
+coarse schedule; it does not prove a uniform microscopic detector catalog.
+\end{itemize}
+\endgroup
+
+The revised numerical wording preserves archived observations and solver
+statuses. No inference of an exact distance is made from a FEASIBLE
+solver status alone. The independent revision checks reconstruct four
+complete small layer-code cases, verify their ranks and commutation,
+check 736 kernel-vector slab lifts at all positions, and check the
+teleportation identities and scalar arithmetic. Their script and results
+are supplied separately within the archive. These checks do not repeat
+the full Monte Carlo campaigns or certify the architecture hypotheses.
+
+\input{scaling_fit_counts.tex}

@@ -1,0 +1,329 @@
+{
+  "gates": {
+    "CNOT_max_error": 0.0,
+    "phase_teleport_max_error": 1.1661769865708242e-16,
+    "Hadamard_max_error": 1.5700924586837752e-16
+  },
+  "lattices": [
+    {
+      "N": 4,
+      "s": 2,
+      "n": 224,
+      "xchecks": 110,
+      "zchecks": 112,
+      "rx": 110,
+      "rz": 112,
+      "k": 2,
+      "euler": 2,
+      "wall_free_variables": 0,
+      "max_check_weight": 6,
+      "slabs_checked": [
+        32,
+        40
+      ],
+      "stabilizer_lift_failures": [],
+      "simple_distance_upper_witnesses": {
+        "X": 5,
+        "Z": 4
+      }
+    },
+    {
+      "N": 4,
+      "s": 3,
+      "n": 504,
+      "xchecks": 250,
+      "zchecks": 252,
+      "rx": 250,
+      "rz": 252,
+      "k": 2,
+      "euler": 2,
+      "wall_free_variables": 0,
+      "max_check_weight": 6,
+      "slabs_checked": [
+        48,
+        56
+      ],
+      "stabilizer_lift_failures": [],
+      "simple_distance_upper_witnesses": {
+        "X": 7,
+        "Z": 6
+      }
+    },
+    {
+      "N": 6,
+      "s": 2,
+      "n": 352,
+      "xchecks": 172,
+      "zchecks": 176,
+      "rx": 172,
+      "rz": 176,
+      "k": 4,
+      "euler": 4,
+      "wall_free_variables": 0,
+      "max_check_weight": 6,
+      "slabs_checked": [
+        128,
+        160
+      ],
+      "stabilizer_lift_failures": [],
+      "simple_distance_upper_witnesses": {
+        "X": 5,
+        "Z": 4
+      }
+    },
+    {
+      "N": 7,
+      "s": 2,
+      "n": 1792,
+      "xchecks": 895,
+      "zchecks": 896,
+      "rx": 895,
+      "rz": 896,
+      "k": 1,
+      "euler": 1,
+      "wall_free_variables": 0,
+      "max_check_weight": 6,
+      "slabs_checked": [
+        128,
+        144
+      ],
+      "stabilizer_lift_failures": [],
+      "simple_distance_upper_witnesses": {
+        "X": null,
+        "Z": null
+      }
+    },
+    {
+      "N": 3,
+      "s": 2,
+      "n": 68,
+      "xchecks": 23,
+      "zchecks": 44,
+      "rx": 23,
+      "rz": 44,
+      "k": 1,
+      "euler": 1,
+      "wall_free_variables": 0,
+      "max_check_weight": 5,
+      "slabs_checked": [
+        4,
+        56
+      ],
+      "stabilizer_lift_failures": [],
+      "simple_distance_upper_witnesses": {
+        "X": null,
+        "Z": 2
+      }
+    },
+    {
+      "N": 3,
+      "s": 2,
+      "n": 108,
+      "xchecks": 63,
+      "zchecks": 44,
+      "rx": 63,
+      "rz": 44,
+      "k": 1,
+      "euler": 1,
+      "wall_free_variables": 0,
+      "max_check_weight": 5,
+      "slabs_checked": [
+        48,
+        6
+      ],
+      "stabilizer_lift_failures": [],
+      "simple_distance_upper_witnesses": {
+        "X": 3,
+        "Z": null
+      }
+    },
+    {
+      "N": 4,
+      "s": 2,
+      "n": 576,
+      "xchecks": 288,
+      "zchecks": 288,
+      "rx": 287,
+      "rz": 287,
+      "k": 2,
+      "euler": 0,
+      "wall_free_variables": 0,
+      "max_check_weight": 6,
+      "slabs_checked": [
+        48,
+        56
+      ],
+      "stabilizer_lift_failures": [],
+      "simple_distance_upper_witnesses": {
+        "X": 7,
+        "Z": 6
+      }
+    }
+  ],
+  "table_III": [
+    {
+      "k": 71,
+      "n": 1000,
+      "rate": 0.071,
+      "wilson": [
+        0.056669695350451466,
+        0.08861366343015481
+      ]
+    },
+    {
+      "k": 68,
+      "n": 1000,
+      "rate": 0.068,
+      "wilson": [
+        0.05399245780853015,
+        0.08531386152298948
+      ]
+    },
+    {
+      "k": 5,
+      "n": 1000,
+      "rate": 0.005,
+      "wilson": [
+        0.0021375355273244596,
+        0.011650955373375113
+      ]
+    },
+    {
+      "k": 0,
+      "n": 1000,
+      "rate": 0.0,
+      "wilson": [
+        2.168404344971009e-19,
+        0.0038267584855551234
+      ]
+    },
+    {
+      "k": 2,
+      "n": 1000,
+      "rate": 0.002,
+      "wilson": [
+        0.000548643588120728,
+        0.007262807863492177
+      ]
+    }
+  ],
+  "table_I": [
+    {
+      "k": 78,
+      "n": 2000,
+      "rate": 0.039,
+      "wilson": [
+        0.03136143254939691,
+        0.04840608504391829
+      ]
+    },
+    {
+      "k": 30,
+      "n": 600,
+      "rate": 0.05,
+      "wilson": [
+        0.03524526778459468,
+        0.07048026312773596
+      ]
+    },
+    {
+      "k": 342,
+      "n": 4500,
+      "rate": 0.076,
+      "wilson": [
+        0.06861393920861504,
+        0.08410934492776785
+      ]
+    },
+    {
+      "k": 252,
+      "n": 2850,
+      "rate": 0.08842105263157894,
+      "wilson": [
+        0.0785441698614994,
+        0.099405960217048
+      ]
+    },
+    {
+      "k": 28,
+      "n": 34000,
+      "rate": 0.0008235294117647059,
+      "wilson": [
+        0.0005698595992339225,
+        0.0011899844728884368
+      ]
+    },
+    {
+      "k": 13,
+      "n": 69000,
+      "rate": 0.00018840579710144927,
+      "wilson": [
+        0.00011011338275582777,
+        0.00032234745116024573
+      ]
+    },
+    {
+      "k": 3,
+      "n": 22800,
+      "rate": 0.00013157894736842105,
+      "wilson": [
+        4.474970228152947e-05,
+        0.0003868205153270207
+      ]
+    },
+    {
+      "k": 1,
+      "n": 9300,
+      "rate": 0.00010752688172043011,
+      "wilson": [
+        1.8981387116416342e-05,
+        0.0006088731229317976
+      ]
+    },
+    {
+      "k": 31,
+      "n": 44000,
+      "rate": 0.0007045454545454546,
+      "wilson": [
+        0.0004964147043660716,
+        0.0009998514541762304
+      ]
+    },
+    {
+      "k": 10,
+      "n": 66600,
+      "rate": 0.00015015015015015014,
+      "wilson": [
+        8.156332218235173e-05,
+        0.00027639589305952946
+      ]
+    },
+    {
+      "k": 0,
+      "n": 23400,
+      "rate": 0.0,
+      "wilson": [
+        0.0,
+        0.00016413796117416076
+      ]
+    },
+    {
+      "k": 0,
+      "n": 9150,
+      "rate": 0.0,
+      "wilson": [
+        0.0,
+        0.0004196553805279721
+      ]
+    }
+  ],
+  "depth_exponent": 5.406890595608519,
+  "crossing_shift_percent": 3.1983896220084946,
+  "prefix_enumeration": {
+    "2": 2,
+    "3": 4,
+    "4": 8,
+    "5": 16,
+    "6": 32
+  }
+}
